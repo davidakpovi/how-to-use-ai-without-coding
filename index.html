@@ -1,0 +1,584 @@
+<!-- index.html (EN — Editorial / Bookish modern) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How to Use AI Without Coding — Audiobook</title>
+  <meta name="description" content="A practical audio guide to understand and use AI in everyday life, even without technical skills." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Use AI Without Coding — Audiobook" />
+  <meta property="og:description" content="Listen at your own pace and learn how to use AI in everyday life, even without technical skills." />
+  <meta property="og:image" content="assets/cover.jpg" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --paper:#fcfcfd;
+      --text:#0b0f14;
+      --muted:#667085;
+      --line:#e7edf6;
+      --shadow:0 18px 46px rgba(16,24,40,.10);
+      --shadowSoft:0 12px 28px rgba(16,24,40,.08);
+      --radius:22px;
+
+      /* same green as your AI word */
+      --mintDeep:#4d9c83;
+      --mintLine:rgba(77,156,131,.35);
+      --mintSoft:rgba(77,156,131,.10);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background: linear-gradient(180deg, var(--paper), #ffffff 40%, #ffffff);
+    }
+    a{color:inherit}
+
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 72px}
+
+    /* top */
+    .top{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-bottom:34px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;
+    }
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--mintDeep)}
+    .chip{
+      font-size:14px;color:var(--muted);
+      padding:10px 14px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    /* editorial stack */
+    .hero{
+      max-width:76ch;
+      margin:0;
+    }
+
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:900;
+      font-size:12px;
+      color:var(--muted);
+      margin:0 0 10px;
+    }
+
+    h1{
+      margin:0;
+      font-size:52px;
+      line-height:1.05;
+      letter-spacing:-1.1px;
+    }
+    .ai{color:var(--mintDeep)}
+    .sub{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .ctaRow{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .primaryCta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--mintLine);
+      background:rgba(77,156,131,.14);
+      color:#163128;
+      font-weight:900;
+      text-decoration:none;
+      transition: transform .08s ease, box-shadow .12s ease, background-color .12s ease, border-color .12s ease;
+    }
+    .primaryCta:hover{
+      transform:translateY(-1px);
+      background:rgba(77,156,131,.20);
+      border-color:rgba(77,156,131,.55);
+      box-shadow: var(--shadowSoft);
+    }
+    .primaryCta:active{transform:translateY(0)}
+    .secondaryLink{
+      color:var(--muted);
+      text-decoration:underline;
+      text-underline-offset:3px;
+      font-size:14px;
+    }
+
+    /* cover block (after text) */
+    .coverBlock{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:22px;
+      align-items:center;
+    }
+    @media (max-width: 860px){
+      .coverBlock{grid-template-columns:1fr}
+    }
+
+    .coverWrap{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:#fff;
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .coverImg{
+      width:100%;
+      border-radius:18px;
+      display:block;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    .editorialNote{
+      padding:6px 2px;
+      max-width:54ch;
+    }
+    .editorialNote h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.2px;
+    }
+    .editorialNote p{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15.5px;
+    }
+
+    .quote{
+      margin-top:26px;
+      border-left:3px solid rgba(77,156,131,.55);
+      padding-left:14px;
+    }
+    .quote p{
+      margin:0;
+      font-style:italic;
+      color:#2b3340;
+      line-height:1.7;
+    }
+
+    /* platforms (vertical, editorial) */
+    .section{
+      margin-top:34px;
+      border-top:1px solid var(--line);
+      padding-top:26px;
+    }
+    .sectionTitle{
+      margin:0 0 14px;
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:900;
+    }
+
+    .platformList{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      max-width:720px;
+    }
+    .pl{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      text-decoration:none;
+      transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .pl:hover{
+      transform:translateY(-1px);
+      border-color:#d7e2f0;
+      box-shadow: var(--shadowSoft);
+    }
+    .plLeft{
+      min-width:0;
+    }
+    .plName{
+      margin:0;
+      font-size:16px;
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+    .plDesc{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .tag{
+      font-size:13px;
+      font-weight:800;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:#2b3340;
+      white-space:nowrap;
+      background:#fff;
+    }
+    .tag.audio{
+      border-color: var(--mintLine);
+      background: var(--mintSoft);
+      color:#163128;
+    }
+
+    /* author + contact */
+    .metaRow{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:baseline;
+      color:var(--muted);
+    }
+    .metaRow b{color:var(--text)}
+    .metaRow .ai{font-weight:900}
+
+    .contactBox{
+      margin-top:18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:#fff;
+      padding:16px 16px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      max-width:720px;
+    }
+    .contactBox h3{margin:0;font-size:16px;font-weight:900;color:var(--text)}
+    .contactBox p{margin:8px 0 0;color:var(--muted);line-height:1.7;font-size:14.5px;max-width:68ch}
+
+    .contactBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--mintLine);
+      background:rgba(77,156,131,.14);
+      color:#163128;
+      font-weight:900;
+      text-decoration:none;
+      transition: transform .08s ease, box-shadow .12s ease, background-color .12s ease, border-color .12s ease;
+    }
+    .contactBtn:hover{
+      transform: translateY(-1px);
+      background: rgba(77,156,131,.20);
+      border-color: rgba(77,156,131,.55);
+      box-shadow: 0 12px 24px rgba(16,24,40,.10);
+    }
+    .contactBtn:active{transform:translateY(0)}
+    .contactBtn:focus-visible{
+      outline: 3px solid rgba(77,156,131,.30);
+      outline-offset: 3px;
+    }
+
+    /* footer */
+    .foot{
+      margin-top:34px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .foot a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+
+    /* consent banner */
+    .consent{
+      position:fixed;
+      left:14px; right:14px; bottom:14px;
+      max-width:980px;
+      margin:0 auto;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow: var(--shadowSoft);
+      padding:14px 14px;
+      display:none;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .consent p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+      max-width:78ch;
+    }
+    .consent .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .cbtn{
+      cursor:pointer;
+      border-radius:999px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:900;
+      font-size:13px;
+    }
+    .cbtn.primary{
+      border-color:var(--mintLine);
+      background:rgba(77,156,131,.14);
+      color:#163128;
+    }
+
+    /* mobile polish */
+    @media (max-width: 700px){
+      h1{font-size:40px}
+      .coverWrap{padding:14px}
+      .coverImg{max-height:420px;object-fit:contain}
+      .top{margin-bottom:26px}
+    }
+  </style>
+
+  <!-- GA4 Consent Mode: default denied -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  </script>
+
+  <!-- GA4 tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDSWKKF4M6"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-CDSWKKF4M6', { anonymize_ip: true });
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="brand"><span class="dot"></span> Audiobook</div>
+      <div class="chip">How to Use AI Without Coding</div>
+    </div>
+
+    <!-- HERO (text first) -->
+    <div class="hero">
+      <p class="kicker">Audio Guide</p>
+      <h1>How to Use <span class="ai">AI</span> Without Coding</h1>
+      <p class="sub">
+        A practical audio guide to understand artificial intelligence in everyday life, even without technical skills.
+      </p>
+
+      <div class="ctaRow">
+        <!-- You can point this to the “best” platform for your EN audience.
+             For now, it uses Spotify (replace if needed). -->
+        <a class="primaryCta track"
+           href="https://open.spotify.com/show/1dMSV7lyvhzOZMBA5pxnOn"
+           target="_blank" rel="noopener"
+           data-platform="Spotify"
+           data-link-id="hero_listen_primary">
+          Listen to the audiobook
+        </a>
+        <a class="secondaryLink" href="#listen">Or choose a platform</a>
+      </div>
+    </div>
+
+    <!-- COVER after text -->
+    <div class="coverBlock">
+      <div class="coverWrap">
+        <img class="coverImg" src="assets/cover.jpg" alt="Audiobook cover: How to Use AI Without Coding">
+      </div>
+
+      <div class="editorialNote">
+        <h2>Who this is for</h2>
+        <p>
+          This audiobook is for people who hear about Artificial Intelligence everywhere, but want to understand it calmly, without technical skills, and without feeling overwhelmed.
+          It helps beginners make a smooth digital transition and find their place in this new era of AI.
+        </p>
+
+        <div class="quote">
+          <p>“Listen at your own pace and learn how to use AI in everyday life, even without technical skills.”</p>
+        </div>
+
+        <div class="metaRow" style="margin-top:14px">
+          <b>David Akpovi</b>
+          <span>Author · AI Guidance & Education</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTEN -->
+    <div class="section" id="listen">
+      <p class="sectionTitle">Available on</p>
+
+      <div class="platformList" aria-label="Platform links">
+        <!-- Spotify -->
+        <a class="pl track"
+           href="https://open.spotify.com/show/1dMSV7lyvhzOZMBA5pxnOn"
+           target="_blank" rel="noopener"
+           data-platform="Spotify"
+           data-link-id="spotify_audio_primary">
+          <div class="plLeft">
+            <p class="plName">Spotify</p>
+            <p class="plDesc">Listen directly on Spotify.</p>
+          </div>
+          <span class="tag audio">Audio</span>
+        </a>
+
+        <!-- Apple Books -->
+        <a class="pl track"
+           href="https://books.apple.com/us/audiobook/how-to-use-ai-without-coding-the-ultimate-beginners/id1874547196"
+           target="_blank" rel="noopener"
+           data-platform="AppleBooks"
+           data-link-id="apple_audio_primary">
+          <div class="plLeft">
+            <p class="plName">Apple Books</p>
+            <p class="plDesc">Great on iPhone and iPad.</p>
+          </div>
+          <span class="tag audio">Audio</span>
+        </a>
+
+        <!-- FNAC -->
+        <a class="pl track"
+         href="https://www.kobo.com/ww/en/audiobook/how-to-use-ai-without-coding"
+         target="_blank" rel="noopener"
+         data-platform="Kobo"
+         data-link-id="kobo_audio_primary">
+        <div class="plLeft">
+          <p class="plName">Kobo</p>
+          <p class="plDesc">Listen on Kobo audiobooks.</p>
+        </div>
+        <span class="tag audio">Audio</span>
+        </a>
+
+        <a class="pl track"
+           href="https://www.everand.com/audiobook/978942829/How-To-Use-AI-Without-Coding-The-Ultimate-Beginner-s-Guide-to-Artificial-Intelligence-in-Everyday-Life"
+           target="_blank" rel="noopener"
+           data-platform="Everand"
+           data-link-id="everand_audio_secondary">
+          <div class="plLeft">
+            <p class="plName">Everand</p>
+            <p class="plDesc">Available with an Everand subscription.</p>
+          </div>
+          <span class="tag audio">Audio</span>
+        </a>
+
+        <!-- Amazon (paper) -->
+        <a class="pl track"
+           href="https://www.amazon.com/dp/B0G2BK75FT"
+           target="_blank" rel="noopener"
+           data-platform="Amazon_Print"
+           data-link-id="amazon_print_primary">
+          <div class="plLeft">
+            <p class="plName">Amazon</p>
+            <p class="plDesc">Paper edition (printed book).</p>
+          </div>
+          <span class="tag">Print</span>
+        </a>
+      </div>
+
+      <!-- Contact (kept secondary) -->
+      <div class="contactBox" aria-label="Contact" style="margin-top:18px">
+        <div>
+          <h3>Want personalized AI guidance?</h3>
+          <p>
+            If you’d like a tailored AI session or have questions before getting started,
+            you can email me directly.
+          </p>
+        </div>
+
+        <a class="contactBtn track"
+           href="mailto:davidakpovi@gmail.com?subject=Personalized%20AI%20Guidance%20—%20Info%20Request&body=Hi%20David%2C%0A%0AI%E2%80%99d%20like%20personalized%20AI%20guidance%20(or%20I%20have%20a%20few%20questions).%0A%0AMy%20goal%3A%20%5B...%5D%0AMy%20level%3A%20%5B...%5D%0AWhat%20I%20need%3A%20%5B...%5D%0A%0AThanks!"
+           data-platform="Email"
+           data-link-id="contact_email_primary">
+          Email me
+        </a>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div>© <span id="year"></span> David Akpovi</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="privacy.html">Privacy</a>
+        <a href="#" id="manage-consent">Manage consent</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consent banner -->
+  <div class="consent" id="consent">
+    <p>
+      This site uses Google Analytics to improve the user experience.
+      <a href="privacy.html">Learn more</a>.
+    </p>
+    <div class="actions">
+      <button class="cbtn" id="deny">Decline</button>
+      <button class="cbtn primary" id="accept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // consent
+    const CONSENT_KEY = "ga4_consent_v1"; // 'granted' | 'denied'
+    const banner = document.getElementById("consent");
+
+    function applyConsent(value){
+      gtag('consent', 'update', { 'analytics_storage': value === "granted" ? 'granted' : 'denied' });
+    }
+    function setConsent(value){
+      localStorage.setItem(CONSENT_KEY, value);
+      applyConsent(value);
+      banner.style.display = "none";
+      gtag('event', value === "granted" ? 'consent_granted' : 'consent_denied', { method: 'banner' });
+    }
+
+    const saved = localStorage.getItem(CONSENT_KEY);
+    if (!saved) banner.style.display = "flex";
+    else applyConsent(saved);
+
+    document.getElementById("accept").addEventListener("click", ()=>setConsent("granted"));
+    document.getElementById("deny").addEventListener("click", ()=>setConsent("denied"));
+    document.getElementById("manage-consent").addEventListener("click", (e)=>{
+      e.preventDefault();
+      banner.style.display = "flex";
+    });
+
+    // outbound click tracking (CTR) — GA will block sends when consent = denied
+    document.querySelectorAll("a.track").forEach(a=>{
+      a.addEventListener("click", ()=>{
+        gtag('event', 'outbound_click', {
+          platform: a.dataset.platform || "Unknown",
+          link_id: a.dataset.linkId || "unknown_link",
+          destination: a.href
+        });
+      });
+    });
+  </script>
+</body>
+</html>
